@@ -40,7 +40,7 @@ function getCoffeeShops(latitude, longitude) {
 function displayUI(locations) {
   var main = new UI.Menu({
     sections: [{
-      title: 'Nearby coffee shops',
+      title: 'Nearby Coffee Shops',
       items: locations
     }]
   });
@@ -64,7 +64,7 @@ function getDistance(lat1, lat2, lon1, lon2) {
 	dist = Math.acos(dist);
 	dist = dist * 180/Math.PI;
 	dist = dist * 60 * 1.1515;
-  dist = dist.toFixed(2);
+  dist = dist.toFixed(1);
   
   if (dist >= (1000/5280))
     return dist + ' miles away';
