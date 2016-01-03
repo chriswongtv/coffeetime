@@ -1,47 +1,48 @@
 {
-    "appKeys": {},
-    "capabilities": [
-        "location"
-    ],
-    "companyName": "chris@cogifire.com",
-    "longName": "CoffeeTime",
-    "projectType": "pebblejs",
-    "resources": {
-        "media": [
-            {
-                "file": "images/menu_icon.png",
-                "menuIcon": true,
-                "name": "IMAGE_MENU_ICON",
-                "type": "png"
-            },
-            {
-                "file": "images/logo_splash.png",
-                "name": "IMAGE_LOGO_SPLASH",
-                "type": "png"
-            },
-            {
-                "file": "images/tile_splash.png",
-                "name": "IMAGE_TILE_SPLASH",
-                "type": "png"
-            },
-            {
-                "file": "fonts/UbuntuMono-Regular.ttf",
-                "name": "MONO_FONT_14",
-                "type": "font"
-            }
-        ]
-    },
-    "sdkVersion": "3",
-    "shortName": "CoffeeTime",
-    "targetPlatforms": [
-        "aplite",
-        "basalt"
-    ],
-    "uuid": "4d5cb6f8-5dfc-4cda-acc9-fdf468c22e1c",
-    "versionCode": 1,
-    "versionLabel": "1.0",
-    "watchapp": {
-        "hiddenApp": false,
-        "watchface": false
-    }
+  "appKeys": {},
+  "capabilities": [
+    "location"
+  ],
+  "companyName": "chris@cogifire.com",
+  "longName": "CoffeeTime",
+  "projectType": "pebblejs",
+  "resources": {
+    "media": [
+      {
+        "file": "images/menu_icon.png",
+        "menuIcon": true,
+        "name": "IMAGE_MENU_ICON",
+        "type": "png"
+      },
+      {
+        "file": "images/logo_splash.png",
+        "name": "IMAGE_LOGO_SPLASH",
+        "type": "png"
+      },
+      {
+        "file": "images/tile_splash.png",
+        "name": "IMAGE_TILE_SPLASH",
+        "type": "png"
+      },
+      {
+        "file": "fonts/UbuntuMono-Regular.ttf",
+        "name": "MONO_FONT_14",
+        "type": "font"
+      }
+    ]
+  },
+  "sdkVersion": "3",
+  "shortName": "CoffeeTime",
+  "targetPlatforms": [
+    "aplite",
+    "basalt",
+    "chalk"
+  ],
+  "uuid": "4d5cb6f8-5dfc-4cda-acc9-fdf468c22e1c",
+  "versionCode": 1,
+  "versionLabel": "1.0",
+  "watchapp": {
+    "hiddenApp": false,
+    "watchface": false
+  }
 }
