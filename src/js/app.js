@@ -30,7 +30,7 @@ function getCoffeeShops(latitude, longitude) {
     var locations = [res.results.length];
 
     for (var i = 0; i < res.results.length; i++) {
-      locations[i] = { title: res.results[i].name, subtitle: getDistance(latitude, res.results[i].geometry.location.lat, longitude, res.results[i].geometry.location.lng) };
+      locations[i] = { title: res.results[i].name, subtitle: getDistance(latitude, res.results[i].geometry.location.lat, longitude, res.results[i].geometry.location.lng), address: res.results[i].vicinity, rating: res.results[i].rating };
     }
     
     displayUI(locations);
@@ -51,10 +51,17 @@ function displayUI(locations) {
   main.show();
 
   main.on('select', function(e) {
-    var details = new UI.Card();
-    details.title(locations[e.itemIndex].title);
-    details.subtitle(locations[e.itemIndex].subtitle);
-    details.body('test');
+    var details = new UI.Card({
+      title: locations[e.itemIndex].title,
+      body: locations[e.itemIndex].address,
+      scrollable: true,
+      backgroundColor: 'black',
+      titleColor: 'white',
+      subtitleColor: 'white',
+      bodyColor: 'white',
+      icon: 'images/coffee.png'
+    });
+
     details.show();
   });
 }
