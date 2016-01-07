@@ -17,13 +17,13 @@ function getCoffeeShops(latitude, longitude) {
   var settings = {
     "async": true,
     "crossDomain": true,
-    "url": "https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDM2Tl_TQVRohTGqoezx7v5Z1T_Djodetk&location=" + latitude + "%2C" + longitude + "&radius=1000&keyword=coffee",
+    "url": "http://coffeetime.rocks/api/v1/list?lat=" + latitude + "&lng=" + longitude,
     "method": "GET",
     "headers": {
       "cache-control": "no-cache",
-      "postman-token": "975f33c0-e625-1022-79ed-3646979faf40"
+      "postman-token": "80bd0349-82c9-2945-fda1-ec88c69b5f43"
     }
-  };
+  }
 
   ajax(settings, function (response) {
     var res = JSON.parse(response);
