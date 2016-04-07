@@ -2,16 +2,31 @@ var UI = require('ui');
 var Vector2 = require('vector2');
 var ajax = require('ajax');
 
-navigator.geolocation.getCurrentPosition(function(loc) {
-  console.log('location is: ' + loc.coords.latitude + ' ' + loc.coords.longitude);
-  getCoffeeShops(loc.coords.latitude, loc.coords.longitude);
-}, function(err) {
-    console.log(err.code);
-}, 
-{
-  timeout: 15000,
-  maximumAge: 10000
+var loading = new UI.Card({
+  backgroundColor: 'black',
+  bodyColor: 'white',
+  body: 'Brewing CoffeeTime...'
 });
+
+var locationError = new UI.Card({
+  backgroundColor: 'black',
+  bodyColor: 'white',
+  body: 'Please enable location services on your device and relaunch CoffeeTime.'
+});
+
+function init() {
+  loading.show();
+  navigator.geolocation.getCurrentPosition(function(loc) {
+    getCoffeeShops(loc.coords.latitude, loc.coords.longitude);
+  }, function(err) {
+    loading.hide();
+    locationError.show();
+  }, 
+  {
+    timeout: 3000,
+    maximumAge: 10000
+  });
+}
 
 function getCoffeeShops(latitude, longitude) {
   var settings = {
@@ -32,7 +47,7 @@ function getCoffeeShops(latitude, longitude) {
     for (var i = 0; i < res.results.length; i++) {
       locations[i] = { title: res.results[i].name, subtitle: getDistance(latitude, res.results[i].geometry.location.lat, longitude, res.results[i].geometry.location.lng), address: res.results[i].vicinity, rating: res.results[i].rating };
     }
-    
+
     displayUI(locations);
   });
 }
@@ -48,6 +63,7 @@ function displayUI(locations) {
       items: locations
     }]
   });
+  loading.hide();
   main.show();
 
   main.on('select', function(e) {
@@ -82,3 +98,5 @@ function getDistance(lat1, lat2, lon1, lon2) {
   else
     return (dist * 5280) + ' feet away';
 }
+
+init();
